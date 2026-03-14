@@ -49,6 +49,10 @@ coverage.xml
 *.py.cover
 .hypothesis/
 .pytest_cache/
+.pytest-root/
+.pytest-tmp/
+.test-artifacts/
+pytest-cache-files-*/
 cover/
 
 # Translations
@@ -143,6 +147,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Local project configuration
+config.yaml
 
 # Spyder project settings
 .spyderproject

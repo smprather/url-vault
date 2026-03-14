@@ -9,7 +9,16 @@ dependencies = [
     "rich-click>=1.9.7",
 ]
 
+[project.scripts]
+mirror-repos = "mirror_repos.cli:main"
+
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",
+]
+
+[tool.pytest.ini_options]
+addopts = "--basetemp=.pytest-tmp -p no:cacheprovider"
+testpaths = [
+    "tests",
 ]

@@ -1,5 +1,4 @@
-def main():
-    print("Hello from mirror-repos!")
+from mirror_repos.cli import main
 
 
 if __name__ == "__main__":
