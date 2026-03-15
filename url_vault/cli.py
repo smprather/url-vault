@@ -4,7 +4,7 @@ from pathlib import Path
 
 import rich_click as click
 
-from mirror_repos.app import run
+from url_vault.app import run
 
 
 @click.command(context_settings={"help_option_names": ["-h", "--help"]})
@@ -22,5 +22,5 @@ from mirror_repos.app import run
     help="Run a single sync cycle and exit instead of entering the update loop.",
 )
 def main(config_path: Path, once: bool) -> None:
-    """Mirror configured GitHub repositories."""
+    """Mirror configured Git repositories and URLs into a local cache."""
     click.get_current_context().exit(run(config_path=config_path, once=once))

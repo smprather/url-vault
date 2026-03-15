@@ -1,2 +1,0 @@
-"""mirror_repos package."""
-

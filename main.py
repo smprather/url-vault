@@ -1,4 +1,4 @@
-from mirror_repos.cli import main
+from url_vault.cli import main
 
 
 if __name__ == "__main__":

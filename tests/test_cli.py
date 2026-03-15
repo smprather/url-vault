@@ -5,13 +5,13 @@ from unittest.mock import patch
 
 from click.testing import CliRunner
 
-from mirror_repos.cli import main
+from url_vault.cli import main
 
 
 def test_cli_passes_once_flag_and_config_path() -> None:
     runner = CliRunner()
 
-    with patch("mirror_repos.cli.run", return_value=0) as run_mock:
+    with patch("url_vault.cli.run", return_value=0) as run_mock:
         result = runner.invoke(main, ["--config", "custom.yaml", "--once"])
 
     assert result.exit_code == 0

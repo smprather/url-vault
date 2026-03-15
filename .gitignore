@@ -150,6 +150,8 @@ venv.bak/
 
 # Local project configuration
 config.yaml
+repo_mirrors/
+requests/*.yaml
 
 # Spyder project settings
 .spyderproject

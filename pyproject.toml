@@ -1,7 +1,11 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "mirror-repos"
+name = "url-vault"
 version = "0.1.0"
-description = "Add your description here"
+description = "Build a local cache of mirrored Git repositories and URLs."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -10,12 +14,15 @@ dependencies = [
 ]
 
 [project.scripts]
-mirror-repos = "mirror_repos.cli:main"
+url-vault = "url_vault.cli:main"
 
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",
 ]
+
+[tool.setuptools]
+packages = ["url_vault"]
 
 [tool.pytest.ini_options]
 addopts = "--basetemp=.pytest-tmp -p no:cacheprovider"

@@ -3,8 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import time
 
-from mirror_repos.config import ConfigError, load_config
-from mirror_repos.sync import sync_repositories
+from url_vault.config import ConfigError, load_config
+from url_vault.sync import sync_repositories
 
 
 def run(config_path: Path | None = None, *, once: bool = False) -> int:
@@ -50,4 +50,3 @@ def format_update_period_seconds(total_seconds: float) -> str:
     if seconds % 60 == 0:
         return f"{seconds // 60}m"
     return f"{seconds}s"
-
