@@ -1,0 +1,9 @@
+# Runtime configuration for the local cache.
+update_period: 24h
+max_parallel: 4
+destination_dir: C:/Users/myles/mirror-repos/repo_mirrors
+prefetch_files:
+  - prefetch.d/neovim-plugins.yaml
+  - prefetch.d/github-com-smprather.yaml
+request_files:
+  - requests/offline-misses.yaml

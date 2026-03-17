@@ -1,0 +1,16 @@
+kind: git
+entries:
+  - url: https://github.com/smprather/delinker.git
+  - url: https://github.com/smprather/dotfiles.git
+  - url: https://github.com/smprather/ee-linux-tools.git
+  - url: https://github.com/smprather/kicker.git
+  - url: https://github.com/smprather/laptop-sync.git
+  - url: https://github.com/smprather/pflasa_ap_test_subsidy.git
+  - url: https://github.com/smprather/pg-grid-netlist-gen.git
+  - url: https://github.com/smprather/routing-tracks-used.git
+  - url: https://github.com/smprather/spice-subckt-rc-reduce.git
+  - url: https://github.com/smprather/spice-to-ibis.git
+  - url: https://github.com/smprather/time-plot.git
+  - url: https://github.com/smprather/tmux-path-store.git
+  - url: https://github.com/smprather/url-vault.git
+  - url: https://github.com/smprather/vcd-toggle-profiler.git
