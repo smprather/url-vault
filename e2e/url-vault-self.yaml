@@ -1,0 +1,8 @@
+update_period: 24h
+max_parallel: 1
+destination_dir: artifacts/cache
+prefetch:
+  - kind: git
+    url: https://github.com/smprather/url-vault.git
+request_files:
+  - artifacts/offline-misses.yaml

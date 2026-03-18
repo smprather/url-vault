@@ -97,3 +97,4 @@ Current repo-local examples:
 
 - Project specification: [docs/specification.md](docs/specification.md)
 - Linux-focused proxy setup: [mitmproxy.md](mitmproxy.md)
+- WSL-backed end-to-end smoke harness: [docs/e2e-smoke.md](docs/e2e-smoke.md)
