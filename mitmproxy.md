@@ -164,6 +164,8 @@ export GIT_SSL_CAINFO="$MITM_CA"
 wget --ca-certificate="$MITM_CA" -S -O - https://example.com/file.txt
 ```
 
+If the CA file is missing or the client does not trust it, Git, `curl`, and other HTTPS clients will usually fail with TLS or certificate errors before cache behavior is even relevant.
+
 ## 7. Git Caveat
 
 Git mirrors are stored as bare repositories. That is enough to hold the objects locally, but HTTP clients are still expecting a Git-over-HTTP view of those files.
@@ -177,6 +179,14 @@ git --git-dir <mirror> update-server-info
 after each Git sync. That helps dumb-HTTP clients by generating `info/refs` metadata inside the mirror.
 
 This is still not the same thing as a full smart Git HTTP server. If you later need better compatibility, the next step is probably `git-http-backend` in front of the same cache tree.
+
+In practice, offline Git cloning works best when clients are forced onto dumb HTTP:
+
+```bash
+export GIT_SMART_HTTP=0
+```
+
+Without that, Git may try smart-HTTP behavior that a static cache tree cannot satisfy reliably.
 
 ## 8. Miss Queue Workflow
 
@@ -236,6 +246,14 @@ If it does not exist, the addon should:
 
 - record the miss in `requests/offline-misses.yaml`
 - return `404` when `offline_only=true`
+
+For Git URLs, do not assume that a successful offline clone means zero 404s or zero miss-log entries. Dumb-HTTP Git clients may probe a few optional paths first, including:
+
+- `objects/info/http-alternates`
+- `objects/info/alternates`
+- individual loose-object paths under `objects/<xx>/...`
+
+Those probes can miss even when the mirror is healthy and Git later falls back to packed objects successfully. Treat clone success plus pack-file responses as the stronger signal. Unexpected misses outside those probe patterns are more likely to indicate a real cache gap.
 
 ## Optional Windows Notes
 
